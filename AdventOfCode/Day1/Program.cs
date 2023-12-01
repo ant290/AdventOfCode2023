@@ -1,7 +1,13 @@
 ﻿// See https://aka.ms/new-console-template for more information
+
+using Day1;
+
 Console.WriteLine("Hello, World!");
 
 var lines = File.ReadLines(@"Data.txt");
+
+var engine = new CalibrationEngine(lines);
+
 var sumOfCalibration = 0;
 
 foreach (string line in lines)
@@ -15,4 +21,8 @@ foreach (string line in lines)
 }
 
 Console.WriteLine($"result = {sumOfCalibration}");
+
+var res = engine.ProcessValues();
+Console.WriteLine($"result = {res}");
+
 Console.Read();
