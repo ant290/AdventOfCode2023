@@ -75,13 +75,12 @@ namespace Day2
         public int Id;
         public List<Set> Sets = new List<Set>();
 
-        public int MinRed;
-        public int MinGreen;
-        public int MinBlue;
+        public int MinRed = 0;
+        public int MinGreen = 0;
+        public int MinBlue = 0;
 
         public void CalculateMins()
         {
-            int reds = 0, blues = 0, greens = 0;
 
             foreach(var set in Sets)
             {
@@ -90,19 +89,17 @@ namespace Day2
                     switch (res.Colour)
                     {
                         case "red":
-                            reds += res.Quantity;
-                            break;
-                        case "blue":
-                            blues += res.Quantity;
+                            if (MinRed < res.Quantity) MinRed = res.Quantity;
                             break;
                         case "green":
-                            greens += res.Quantity;
+                            if (MinGreen < res.Quantity) MinGreen = res.Quantity;
+                            break;
+                        case "blue":
+                            if (MinBlue < res.Quantity) MinBlue = res.Quantity;
                             break;
                     }
                 }
             }
-
-            MinRed = reds; MinGreen = greens; MinBlue = blues;
         }
     }
 
