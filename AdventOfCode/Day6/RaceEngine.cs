@@ -12,18 +12,8 @@
                 {
                     new Race()
                     {
-                        Time = 7,
-                        Distance = 9
-                    },
-                    new Race()
-                    {
-                        Time = 15,
-                        Distance = 40
-                    },
-                    new Race()
-                    {
-                        Time = 30,
-                        Distance = 200
+                        Time = 71530,
+                        Distance = 940200
                     }
                 };
             }
@@ -33,23 +23,8 @@
                 {
                     new Race()
                     {
-                        Time = 38,
-                        Distance = 234
-                    },
-                    new Race()
-                    {
-                        Time = 67,
-                        Distance = 1027
-                    },
-                    new Race()
-                    {
-                        Time = 76,
-                        Distance = 1157
-                    },
-                    new Race()
-                    {
-                        Time = 73,
-                        Distance = 1236
+                        Time = 38677673,
+                        Distance = 234102711571236
                     }
                 };
             }
@@ -73,7 +48,6 @@
                 }
 
                 result = result * i;
-
             }
 
             return result ?? 0;
@@ -83,7 +57,7 @@
     internal class Race
     {
         public int Time;
-        public int Distance;
+        public long Distance;
 
         public int GetNumberOfWaysToWin()
         {
@@ -91,9 +65,12 @@
             for (int i = 1; i < Time; i++)
             {
                 var timeLeftToRace = Time - i;
-                var distanceTravelled = i * timeLeftToRace;
+                long distanceTravelled = timeLeftToRace * (long)i;
 
-                if (distanceTravelled > Distance) waysToWinCount++;
+                if (distanceTravelled > Distance)
+                {
+                    waysToWinCount++;
+                }
             }
 
             return waysToWinCount;
