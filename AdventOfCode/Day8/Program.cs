@@ -1,0 +1,15 @@
+﻿// See https://aka.ms/new-console-template for more information
+using Day8;
+
+Console.WriteLine("Hello, World!");
+
+var lines = File.ReadLines(@"Data.txt");
+
+var navigator = new Navigator(lines);
+
+navigator.ProcessData();
+
+string instructions = "LRLRLLRRLRRRLRLRRLRLLRRLRRRLRLRLRLRRLRLLRRRLRRRLLRRLRRLRLRRRLLLRRLRLRLRLRLRLLRRRLRLRRRLRRRLRRRLRRRLRRRLRRRLRRRLRRLRRRLLRLLRRLRRLRRLRRRLLRLRRLRLRLRRLLRLRRRLRRLLRLRLRRRLRRLRRLRRLRLLRLRRRLLLRRRLLLLRRLRRRLLLRRLLRLRLRLLLRRRLLRRRLLLRLRRLLRRRLRRRLRLLRRRLRLRLRLLRRLLRRLRRRLRLRRRLRRLRLRRLRRRR";
+Console.WriteLine(navigator.navigateNodes(instructions));
+
+Console.ReadKey();
